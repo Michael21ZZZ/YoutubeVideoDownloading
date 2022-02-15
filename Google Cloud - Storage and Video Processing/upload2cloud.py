@@ -16,7 +16,6 @@ UP_LOAD_FILE_ROUTE = args.audio_path
 BUCKET_NAME = args.bucket_name
 """
 
-
 #path of the files
 UP_LOAD_FILE_ROUTE = "../Toy_data"
 
