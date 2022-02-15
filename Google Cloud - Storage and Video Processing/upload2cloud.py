@@ -2,7 +2,11 @@
 from google.cloud import storage
 import os
 import argparse
+import pprint
 
+
+"""
+#uncomment if using arguments in console
 parser = argparse.ArgumentParser()
 parser.add_argument('--audio_path', type=str, default='./audios')
 parser.add_argument('--bucket_name', type=str, default='')
@@ -10,12 +14,21 @@ args = parser.parse_args()
 
 UP_LOAD_FILE_ROUTE = args.audio_path
 BUCKET_NAME = args.bucket_name
+"""
+
+
+#path of the files
+UP_LOAD_FILE_ROUTE = "../Toy_data"
+
+#the name of the bucket
+BUCKET_NAME ="video_list_capstoneyt_2022"
+
 
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
     """Uploads a file to the bucket."""
-    # bucket_name = "your-bucket-name"
-    # source_file_name = "local/path/to/file"
-    # destination_blob_name = "storage-object-name"
+    #bucket_name = "video_list_capstoneyt_2022"
+    #source_file_name = "../Toy_data/The_Greatest_Show.mp4"
+    #destination_blob_name = "storage-object-name"
 
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
@@ -29,7 +42,6 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
         )
     )
 # upload_blob('videos', './test.wav', 'test.wav')
-import pprint
 
 
 def bucket_metadata(bucket_name):
