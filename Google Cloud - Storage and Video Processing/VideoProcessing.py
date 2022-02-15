@@ -4,7 +4,7 @@
 # In[ ]:
 
 
-get_ipython().system('pip install --upgrade google-cloud-videointelligence')
+#get_ipython().system('pip install --upgrade google-cloud-videointelligence')
 
 
 # In[ ]:
@@ -21,8 +21,10 @@ import string
 import proto
 import json
 
-## download your API Key from your Google Console 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/content/drive/MyDrive/Colab Notebooks/youtube-video-analysis-333605-d50218259c5d.json'
+## download your API Key from your Google Console
+
+#this is the path to the API credentials. Modify this path to the json file in this folder.
+#os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'stoked-dominion-341317-faec5815b985.json'
 video_client = videointelligence.VideoIntelligenceServiceClient()
 
 
@@ -2379,7 +2381,7 @@ def list_blobs_with_prefix(bucket_name, prefix, delimiter=None):
 
 if __name__ == "__main__":
     list_blobs_with_prefix(
-        bucket_name="youtube_videos_data", prefix="outputOCR/", delimiter="/"
+        bucket_name="video_list_capstoneyt_2022", prefix="outputOCR/", delimiter="/"
     )
 
 
@@ -2392,7 +2394,7 @@ if __name__ == "__main__":
 # In[ ]:
 
 
-# this is a video that I have uploaded on Cloud Storage and I obtained the URI from google console 
+# this is a video that I have uploaded on Cloud Storage and I obtained the URI from google console
 
 for video in video_list[1009:]:
   print(video_list.index(video))
@@ -2429,7 +2431,7 @@ for video in video_list[1009:]:
 # In[ ]:
 
 
-# this is a video that I have uploaded on Cloud Storage and I obtained the URI from google console 
+# this is a video that I have uploaded on Cloud Storage and I obtained the URI from google console
 print("out")
 for video in video_list[1018:]:
   print("in")
@@ -2467,7 +2469,3 @@ for video in video_list[1018:]:
 
 
 # In[ ]:
-
-
-
-
