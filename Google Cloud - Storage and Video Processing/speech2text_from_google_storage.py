@@ -1,11 +1,13 @@
 from google.cloud import storage
-from google.cloud import speech_v1
-from google.cloud.speech_v1 import enums
+from google.cloud import speech
+#from google.cloud.speech_v1 import enums
+#from google.cloud.speech_v1 import types
 import io
 import os
 import argparse
 import json
 
+"""
 parser = argparse.ArgumentParser()
 # parser.add_argument('--audio_path', type=str, default='./audios')
 parser.add_argument('--bucket_name', type=str, default='fyanvideos')
@@ -15,6 +17,12 @@ args = parser.parse_args()
 # UP_LOAD_FILE_ROUTE = args.audio_path
 BUCKET_NAME = args.bucket_name
 SAVE_PATH = args.save_path
+"""
+# UP_LOAD_FILE_ROUTE = args.audio_path
+SAVE_PATH = 'text'
+
+#the name of the bucket
+BUCKET_NAME ="video_list_capstoneyt_2022"
 
 
 def sample_long_running_recognize(storage_uri, filename):
@@ -25,7 +33,7 @@ def sample_long_running_recognize(storage_uri, filename):
       storage_uri URI for audio file in Cloud Storage, e.g. gs://[BUCKET]/[FILE]
     """
 
-    client = speech_v1.SpeechClient()
+    client = speech.SpeechClient()
 
     # storage_uri = 'gs://cloud-samples-data/speech/brooklyn_bridge.raw'
 
@@ -37,7 +45,7 @@ def sample_long_running_recognize(storage_uri, filename):
 
     # Encoding of audio data sent. This sample sets this explicitly.
     # This field is optional for FLAC and WAV audio formats.
-    encoding = enums.RecognitionConfig.AudioEncoding.LINEAR16
+    encoding = speech.RecognitionConfig.AudioEncoding.LINEAR16
     config = {
         "audio_channel_count": 2,
         "enable_separate_recognition_per_channel": False,

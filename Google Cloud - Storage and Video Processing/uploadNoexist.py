@@ -2,6 +2,7 @@ from google.cloud import storage
 import os
 import argparse
 
+"""
 parser = argparse.ArgumentParser()
 parser.add_argument('--audio_path', type=str, default='./audios')
 parser.add_argument('--bucket_name', type=str, default='')
@@ -9,6 +10,12 @@ args = parser.parse_args()
 
 UP_LOAD_FILE_ROUTE = args.audio_path
 BUCKET_NAME = args.bucket_name
+"""
+#path of the files
+UP_LOAD_FILE_ROUTE = "../Toy_data"
+
+#the name of the bucket
+BUCKET_NAME ="video_list_capstoneyt_2022"
 
 
 def get_exist_filename_set(bucket_name):
