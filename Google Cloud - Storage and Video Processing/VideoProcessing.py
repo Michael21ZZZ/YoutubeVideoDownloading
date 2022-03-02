@@ -20,17 +20,8 @@ video_client = videointelligence.VideoIntelligenceServiceClient()
 
 import difflib
 
-# Changes:
-# swapped positions of cat and dog
-# changed gophers to gopher
-# removed hound
-# added mouse
-
 for line in difflib.unified_diff(lines1, lines2, fromfile='file1', tofile='file2', lineterm='', n=0):
     print(line)
-
-
-# In[ ]:
 
 
 def compare(File1,File2):
@@ -92,7 +83,7 @@ if __name__ == "__main__":
 # this is a video that I have uploaded on Cloud Storage and I obtained the URI from google console
 for video in video_list:
   print(video_list.index(video))
-  gs_URI = 'gs://youtube_videos_data/'+ video
+  gs_URI = 'gs://video_list_capstoneyt_2022/'+ video
   temp = video.split('/')
   print(temp)
   print("here", gs_URI)
@@ -108,7 +99,7 @@ for video in video_list:
         "features": features,
         "input_uri": gs_URI,
         "video_context": video_context,
-        "output_uri": 'gs://youtube_videos_data/output/'+ temp[1] +'.json'
+        "output_uri": 'gs://video_list_capstoneyt_2022/output/'+ temp[1] +'.json'
     }
   )
 
@@ -126,7 +117,7 @@ print("out")
 for video in video_list:
   print("in")
   print(video_list.index(video))
-  gs_URI = 'gs://youtube_videos_data/'+ video
+  gs_URI = 'gs://video_list_capstoneyt_2022/'+ video
   temp = video.split('/')
   print(temp)
   print("here", gs_URI)
@@ -138,7 +129,7 @@ for video in video_list:
         "features": features,
         "input_uri": gs_URI,
         "video_context": video_context,
-        "output_uri": 'gs://youtube_videos_data/outputOCR/'+ temp[1] +'OCR'+'.json'
+        "output_uri": 'gs://video_list_capstoneyt_2022/outputOCR/'+ temp[1] +'OCR'+'.json'
     }
   )
 
