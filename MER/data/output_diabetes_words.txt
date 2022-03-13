@@ -1,0 +1,178 @@
+Diabetes <Pad> O
+is <Pad> O
+a <Pad> O
+disease <Pad> B-MT
+in <Pad> I-MT
+which <Pad> I-MT
+your <Pad> I-MT
+blood <Pad> B-MT
+glucose <Pad> I-MT
+or <Pad> O
+blood <Pad> B-MT
+sugar <Pad> I-MT
+levels <Pad> B-MT
+are <Pad> O
+too <Pad> O
+high <Pad> O
+
+Glucose <Pad> O
+comes <Pad> O
+from <Pad> O
+the <Pad> O
+foods <Pad> O
+you <Pad> O
+eat <Pad> O
+
+Insulin <Pad> O
+is <Pad> O
+a <Pad> O
+hormone <Pad> B-MT
+that <Pad> I-MT
+helps <Pad> I-MT
+the <Pad> I-MT
+glucose <Pad> B-MT
+get <Pad> I-MT
+into <Pad> I-MT
+your <Pad> I-MT
+cells <Pad> I-MT
+to <Pad> I-MT
+give <Pad> I-MT
+them <Pad> I-MT
+energy <Pad> I-MT
+
+With <Pad> O
+type <Pad> O
+diabetes <Pad> B-MT
+
+Your <Pad> O
+body <Pad> O
+does <Pad> O
+not <Pad> O
+make <Pad> O
+insulin <Pad> B-MT
+with <Pad> I-MT
+type <Pad> I-MT
+diabetes <Pad> B-MT
+
+The <Pad> O
+more <Pad> O
+common <Pad> O
+type <Pad> O
+
+Your <Pad> O
+body <Pad> O
+does <Pad> O
+not <Pad> O
+make <Pad> O
+or <Pad> O
+use <Pad> O
+insulin <Pad> B-MT
+
+Well <Pad> O
+Without <Pad> O
+enough <Pad> O
+insulin <Pad> B-MT
+the <Pad> I-MT
+glucose <Pad> B-MT
+stays <Pad> I-MT
+in <Pad> I-MT
+your <Pad> I-MT
+blood <Pad> B-MT
+
+Glucose <Pad> O
+comes <Pad> O
+from <Pad> O
+the <Pad> O
+foods <Pad> O
+you <Pad> O
+eat <Pad> O
+
+Over <Pad> O
+time <Pad> O
+having <Pad> O
+too <Pad> O
+much <Pad> O
+glucose <Pad> B-MT
+in <Pad> I-MT
+your <Pad> I-MT
+blood <Pad> B-MT
+can <Pad> I-MT
+cause <Pad> I-MT
+serious <Pad> I-MT
+problems <Pad> I-MT
+
+It <Pad> O
+can <Pad> O
+damage <Pad> O
+your <Pad> O
+eyes <Pad> B-MT
+kidneys <Pad> I-MT
+and <Pad> O
+nerves <Pad> B-MT
+
+Diabetes <Pad> O
+can <Pad> O
+also <Pad> O
+cause <Pad> O
+heart <Pad> B-MT
+disease <Pad> I-MT
+stroke <Pad> O
+and <Pad> O
+even <Pad> O
+the <Pad> O
+need <Pad> O
+to <Pad> O
+removal <Pad> O
+in <Pad> O
+
+Pregnant <Pad> O
+
+Women <Pad> O
+can <Pad> O
+also <Pad> O
+get <Pad> O
+diabetes <Pad> B-MT
+called <Pad> I-MT
+gestational <Pad> B-MT
+diabetes <Pad> I-MT
+
+A <Pad> O
+blood <Pad> B-MT
+test <Pad> I-MT
+can <Pad> O
+show <Pad> O
+if <Pad> O
+you <Pad> O
+have <Pad> O
+diabetes <Pad> B-MT
+
+Exercise <Pad> O
+weed <Pad> O
+control <Pad> O
+and <Pad> O
+sticking <Pad> O
+to <Pad> O
+your <Pad> O
+meal <Pad> O
+plan <Pad> O
+can <Pad> O
+help <Pad> O
+control <Pad> O
+your <Pad> O
+diabetes <Pad> B-MT
+
+You <Pad> O
+should <Pad> O
+also <Pad> O
+monitor <Pad> O
+your <Pad> O
+glucose <Pad> B-MT
+level <Pad> I-MT
+and <Pad> O
+take <Pad> O
+medicine <Pad> O
+
+If <Pad> O
+prescribed <Pad> O
+
+

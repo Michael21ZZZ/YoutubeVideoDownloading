@@ -1,7 +1,7 @@
 import argparse
-from Model.SpacyNER import train_model as spacy_train
-from Model.SpacyNER import evaluation as spacy_eval
-from Model.CRF import train_model as crf_train
+#from Model.SpacyNER import train_model as spacy_train
+#from Model.SpacyNER import evaluation as spacy_eval
+#from Model.CRF import train_model as crf_train
 
 from Model.LSTM_CRF import train_model as lstm_crf_train
 import os

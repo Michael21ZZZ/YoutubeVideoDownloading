@@ -1,0 +1,350 @@
+Using config: {'_model_dir': 'saved_model/lstm_crf/model', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': None, '_save_checkpoints_secs': 120, '_session_config': intra_op_parallelism_threads: 5
+inter_op_parallelism_threads: 5
+, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': 100, '_train_distribute': None, '_device_fn': None, '_protocol': None, '_eval_distribute': None, '_experimental_distribute': None, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7fbd11e79400>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1}
+Not using Distribute Coordinator.
+Running training and evaluation locally (non-distributed).
+Start train and evaluate loop. The evaluate will happen after every checkpoint. Checkpoint frequency is determined based on RunConfig arguments: save_checkpoints_steps None or save_checkpoints_secs 120.
+From /Users/yanglingqin/opt/anaconda3/envs/capstone_lstm/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+From /Users/yanglingqin/opt/anaconda3/envs/capstone_lstm/lib/python3.6/site-packages/tensorflow/python/data/ops/dataset_ops.py:429: py_func (from tensorflow.python.ops.script_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+tf.py_func is deprecated in TF V2. Instead, use
+    tf.py_function, which takes a python function which manipulates tf eager
+    tensors instead of numpy arrays. It's easy to convert a tf eager tensor to
+    an ndarray (just call tensor.numpy()) but having access to eager tensors
+    means `tf.py_function`s can use accelerators such as GPUs as well as
+    being differentiable using a gradient tape.
+    
+Calling model_fn.
+From /Users/yanglingqin/Desktop/github/YoutubeRx/MER/Model/LSTM_CRF/train_model.py:100: dropout (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dropout instead.
+From /Users/yanglingqin/opt/anaconda3/envs/capstone_lstm/lib/python3.6/site-packages/tensorflow/python/keras/layers/core.py:143: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+From /Users/yanglingqin/opt/anaconda3/envs/capstone_lstm/lib/python3.6/site-packages/tensorflow/contrib/rnn/python/ops/lstm_ops.py:696: to_int64 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+From /Users/yanglingqin/Desktop/github/YoutubeRx/MER/Model/LSTM_CRF/train_model.py:114: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dense instead.
+From /Users/yanglingqin/opt/anaconda3/envs/capstone_lstm/lib/python3.6/site-packages/tensorflow/contrib/crf/python/ops/crf.py:567: dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.RNN(cell)`, which is equivalent to this API
+From /Users/yanglingqin/opt/anaconda3/envs/capstone_lstm/lib/python3.6/site-packages/tensorflow/python/ops/rnn.py:626: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+From /Users/yanglingqin/opt/anaconda3/envs/capstone_lstm/lib/python3.6/site-packages/tensorflow/python/ops/metrics_impl.py:455: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Done calling model_fn.
+Create CheckpointSaverHook.
+Graph was finalized.
+Running local_init_op.
+Done running local_init_op.
+Saving checkpoints for 0 into saved_model/lstm_crf/model/model.ckpt.
+loss = 37.19419, step = 1
+global_step/sec: 18.3704
+loss = 9.380284, step = 101 (5.440 sec)
+global_step/sec: 18.6787
+loss = 7.5982614, step = 201 (5.354 sec)
+global_step/sec: 21.6072
+loss = 7.036645, step = 301 (4.628 sec)
+global_step/sec: 23.5682
+loss = 7.0694823, step = 401 (4.243 sec)
+global_step/sec: 21.8649
+loss = 12.044291, step = 501 (4.573 sec)
+global_step/sec: 21.823
+loss = 4.501031, step = 601 (4.582 sec)
+global_step/sec: 22.9258
+loss = 4.7210555, step = 701 (4.362 sec)
+global_step/sec: 22.445
+loss = 4.341684, step = 801 (4.455 sec)
+global_step/sec: 22.3525
+loss = 3.1827786, step = 901 (4.474 sec)
+global_step/sec: 23.2526
+loss = 5.690471, step = 1001 (4.301 sec)
+global_step/sec: 21.9224
+loss = 6.2955155, step = 1101 (4.562 sec)
+global_step/sec: 22.9822
+loss = 10.718992, step = 1201 (4.351 sec)
+global_step/sec: 22.7398
+loss = 3.6164443, step = 1301 (4.398 sec)
+global_step/sec: 22.6831
+loss = 2.2209468, step = 1401 (4.409 sec)
+global_step/sec: 23.0034
+loss = 2.1653938, step = 1501 (4.347 sec)
+global_step/sec: 15.1704
+loss = 4.0727625, step = 1601 (6.593 sec)
+global_step/sec: 18.6
+loss = 3.477338, step = 1701 (5.376 sec)
+global_step/sec: 21.6032
+loss = 6.24339, step = 1801 (4.629 sec)
+global_step/sec: 20.7762
+loss = 2.669835, step = 1901 (4.813 sec)
+global_step/sec: 22.1912
+loss = 1.7894894, step = 2001 (4.506 sec)
+global_step/sec: 16.3049
+loss = 5.483311, step = 2101 (6.134 sec)
+global_step/sec: 18.2705
+loss = 3.1318367, step = 2201 (5.473 sec)
+global_step/sec: 18.31
+loss = 3.8226266, step = 2301 (5.461 sec)
+global_step/sec: 20.3367
+loss = 3.4644394, step = 2401 (4.918 sec)
+Saving checkpoints for 2413 into saved_model/lstm_crf/model/model.ckpt.
+Calling model_fn.
+Done calling model_fn.
+Starting evaluation at 2022-03-13T20:01:22Z
+Graph was finalized.
+From /Users/yanglingqin/opt/anaconda3/envs/capstone_lstm/lib/python3.6/site-packages/tensorflow/python/training/saver.py:1266: checkpoint_exists (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to check for files with this prefix.
+Restoring parameters from saved_model/lstm_crf/model/model.ckpt-2413
+Running local_init_op.
+Done running local_init_op.
+Evaluation [10/100]
+Evaluation [20/100]
+Evaluation [30/100]
+Evaluation [40/100]
+Finished evaluation at 2022-03-13-20:01:24
+Saving dict for global step 2413: acc = 0.8501829, f1 = 0.7674335, global_step = 2413, loss = 4.1653624, precision = 0.80777174, recall = 0.73093253
+Saving 'checkpoint_path' summary for global step 2413: saved_model/lstm_crf/model/model.ckpt-2413
+From /Users/yanglingqin/opt/anaconda3/envs/capstone_lstm/lib/python3.6/site-packages/tensorflow/python/summary/summary_iterator.py:68: tf_record_iterator (from tensorflow.python.lib.io.tf_record) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use eager execution and: 
+`tf.data.TFRecordDataset(path)`
+global_step/sec: 10.3885
+loss = 1.7639475, step = 2501 (9.625 sec)
+global_step/sec: 18.6292
+loss = 1.3772757, step = 2601 (5.368 sec)
+global_step/sec: 20.5079
+loss = 2.1479645, step = 2701 (4.876 sec)
+global_step/sec: 17.4192
+loss = 2.2362864, step = 2801 (5.742 sec)
+global_step/sec: 16.5279
+loss = 1.9465292, step = 2901 (6.050 sec)
+global_step/sec: 15.7703
+loss = 1.3389313, step = 3001 (6.341 sec)
+global_step/sec: 16.3673
+loss = 0.6507862, step = 3101 (6.110 sec)
+global_step/sec: 18.9897
+loss = 1.0015953, step = 3201 (5.266 sec)
+global_step/sec: 16.7186
+loss = 1.3123009, step = 3301 (5.982 sec)
+global_step/sec: 16.4195
+loss = 2.4775338, step = 3401 (6.090 sec)
+global_step/sec: 16.7757
+loss = 1.3671368, step = 3501 (5.961 sec)
+global_step/sec: 16.9605
+loss = 2.8279383, step = 3601 (5.896 sec)
+global_step/sec: 14.9519
+loss = 3.76382, step = 3701 (6.689 sec)
+global_step/sec: 14.7501
+loss = 0.90957737, step = 3801 (6.779 sec)
+global_step/sec: 14.9889
+loss = 2.4086845, step = 3901 (6.672 sec)
+global_step/sec: 17.4261
+loss = 1.5134904, step = 4001 (5.738 sec)
+global_step/sec: 13.7786
+loss = 0.90907824, step = 4101 (7.258 sec)
+global_step/sec: 16.0195
+loss = 1.7856512, step = 4201 (6.242 sec)
+global_step/sec: 15.4373
+loss = 3.5599403, step = 4301 (6.478 sec)
+Saving checkpoints for 4324 into saved_model/lstm_crf/model/model.ckpt.
+Calling model_fn.
+Done calling model_fn.
+Starting evaluation at 2022-03-13T20:03:22Z
+Graph was finalized.
+Restoring parameters from saved_model/lstm_crf/model/model.ckpt-4324
+Running local_init_op.
+Done running local_init_op.
+Evaluation [10/100]
+Evaluation [20/100]
+Evaluation [30/100]
+Evaluation [40/100]
+Finished evaluation at 2022-03-13-20:03:24
+Saving dict for global step 4324: acc = 0.8554275, f1 = 0.783507, global_step = 4324, loss = 4.28774, precision = 0.80117166, recall = 0.76660436
+Saving 'checkpoint_path' summary for global step 4324: saved_model/lstm_crf/model/model.ckpt-4324
+global_step/sec: 11.0811
+loss = 2.6825569, step = 4401 (9.024 sec)
+global_step/sec: 17.7077
+loss = 0.578996, step = 4501 (5.647 sec)
+global_step/sec: 16.6002
+loss = 1.3199648, step = 4601 (6.024 sec)
+global_step/sec: 18.1927
+loss = 0.45048523, step = 4701 (5.496 sec)
+global_step/sec: 16.4225
+loss = 0.37462026, step = 4801 (6.089 sec)
+global_step/sec: 16.7216
+loss = 0.7530088, step = 4901 (5.980 sec)
+global_step/sec: 18.0438
+loss = 0.41281956, step = 5001 (5.542 sec)
+global_step/sec: 18.2108
+loss = 1.1586308, step = 5101 (5.491 sec)
+global_step/sec: 15.3873
+loss = 0.61013806, step = 5201 (6.499 sec)
+global_step/sec: 16.9859
+loss = 2.2656932, step = 5301 (5.887 sec)
+global_step/sec: 19.5766
+loss = 0.7917942, step = 5401 (5.108 sec)
+global_step/sec: 19.6151
+loss = 0.39425915, step = 5501 (5.098 sec)
+global_step/sec: 17.4794
+loss = 0.8881154, step = 5601 (5.721 sec)
+global_step/sec: 16.4193
+loss = 0.8185566, step = 5701 (6.090 sec)
+global_step/sec: 16.2536
+loss = 0.7931756, step = 5801 (6.153 sec)
+global_step/sec: 16.2852
+loss = 0.4219841, step = 5901 (6.141 sec)
+global_step/sec: 14.1509
+loss = 3.8465505, step = 6001 (7.067 sec)
+global_step/sec: 9.9648
+loss = 1.3360262, step = 6101 (10.036 sec)
+global_step/sec: 13.4866
+loss = 1.3165718, step = 6201 (7.414 sec)
+Saving checkpoints for 6213 into saved_model/lstm_crf/model/model.ckpt.
+Calling model_fn.
+Done calling model_fn.
+Starting evaluation at 2022-03-13T20:05:24Z
+Graph was finalized.
+Restoring parameters from saved_model/lstm_crf/model/model.ckpt-6213
+Running local_init_op.
+Done running local_init_op.
+Evaluation [10/100]
+Evaluation [20/100]
+Evaluation [30/100]
+Evaluation [40/100]
+Finished evaluation at 2022-03-13-20:05:25
+Saving dict for global step 6213: acc = 0.8534953, f1 = 0.7781139, global_step = 6213, loss = 4.801992, precision = 0.8169251, recall = 0.7428232
+Saving 'checkpoint_path' summary for global step 6213: saved_model/lstm_crf/model/model.ckpt-6213
+global_step/sec: 7.47665
+loss = 0.6664676, step = 6301 (13.376 sec)
+global_step/sec: 8.0887
+loss = 1.0470936, step = 6401 (12.365 sec)
+global_step/sec: 11.8613
+loss = 0.91211164, step = 6501 (8.441 sec)
+global_step/sec: 15.8564
+loss = 1.0492262, step = 6601 (6.294 sec)
+global_step/sec: 17.5505
+loss = 0.53986585, step = 6701 (5.698 sec)
+global_step/sec: 15.8846
+loss = 0.7715243, step = 6801 (6.296 sec)
+global_step/sec: 17.5685
+loss = 1.5751724, step = 6901 (5.692 sec)
+global_step/sec: 15.9681
+loss = 0.5217311, step = 7001 (6.262 sec)
+global_step/sec: 20.4581
+loss = 0.6962143, step = 7101 (4.888 sec)
+global_step/sec: 17.7722
+loss = 0.9139603, step = 7201 (5.627 sec)
+global_step/sec: 17.5793
+loss = 0.17375112, step = 7301 (5.689 sec)
+global_step/sec: 15.6775
+loss = 0.5351006, step = 7401 (6.379 sec)
+global_step/sec: 13.8782
+loss = 1.3678097, step = 7501 (7.205 sec)
+global_step/sec: 16.2821
+loss = 0.36014757, step = 7601 (6.142 sec)
+global_step/sec: 19.2196
+loss = 1.1432819, step = 7701 (5.203 sec)
+global_step/sec: 17.9442
+loss = 1.3059884, step = 7801 (5.573 sec)
+global_step/sec: 19.7661
+loss = 0.5056881, step = 7901 (5.059 sec)
+Saving checkpoints for 7985 into saved_model/lstm_crf/model/model.ckpt.
+Skip the current checkpoint eval due to throttle secs (120 secs).
+global_step/sec: 15.7574
+loss = 0.7988342, step = 8001 (6.347 sec)
+global_step/sec: 12.5964
+loss = 0.8776325, step = 8101 (7.940 sec)
+global_step/sec: 14.5306
+loss = 0.32817906, step = 8201 (6.880 sec)
+global_step/sec: 14.9027
+loss = 0.38790455, step = 8301 (6.710 sec)
+global_step/sec: 16.1847
+loss = 0.4324468, step = 8401 (6.179 sec)
+global_step/sec: 14.4944
+loss = 0.52819216, step = 8501 (6.899 sec)
+global_step/sec: 14.5576
+loss = 0.24953441, step = 8601 (6.869 sec)
+global_step/sec: 13.9514
+loss = 0.8807092, step = 8701 (7.168 sec)
+global_step/sec: 15.2364
+loss = 0.46170345, step = 8801 (6.563 sec)
+global_step/sec: 17.1349
+loss = 0.63314277, step = 8901 (5.836 sec)
+global_step/sec: 14.2229
+loss = 0.8217939, step = 9001 (7.031 sec)
+global_step/sec: 15.7927
+loss = 0.72056645, step = 9101 (6.332 sec)
+global_step/sec: 16.0897
+loss = 0.2029809, step = 9201 (6.216 sec)
+global_step/sec: 17.9649
+loss = 1.2479515, step = 9301 (5.566 sec)
+global_step/sec: 14.8368
+loss = 0.82695735, step = 9401 (6.741 sec)
+global_step/sec: 14.6164
+loss = 0.45139495, step = 9501 (6.841 sec)
+global_step/sec: 14.3504
+loss = 0.866152, step = 9601 (6.969 sec)
+global_step/sec: 14.3138
+loss = 1.2095444, step = 9701 (6.986 sec)
+Saving checkpoints for 9767 into saved_model/lstm_crf/model/model.ckpt.
+From /Users/yanglingqin/opt/anaconda3/envs/capstone_lstm/lib/python3.6/site-packages/tensorflow/python/training/saver.py:966: remove_checkpoint (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to delete files with this prefix.
+Calling model_fn.
+Done calling model_fn.
+Starting evaluation at 2022-03-13T20:09:23Z
+Graph was finalized.
+Restoring parameters from saved_model/lstm_crf/model/model.ckpt-9767
+Running local_init_op.
+Done running local_init_op.
+Evaluation [10/100]
+Evaluation [20/100]
+Evaluation [30/100]
+Evaluation [40/100]
+Finished evaluation at 2022-03-13-20:09:25
+Saving dict for global step 9767: acc = 0.85680765, f1 = 0.78202647, global_step = 9767, loss = 5.5510173, precision = 0.8123742, recall = 0.75386447
+Saving 'checkpoint_path' summary for global step 9767: saved_model/lstm_crf/model/model.ckpt-9767
+global_step/sec: 8.38968
+loss = 0.3802595, step = 9801 (11.920 sec)
+global_step/sec: 15.4746
+loss = 0.5090095, step = 9901 (6.462 sec)
+global_step/sec: 15.4673
+loss = 0.48513144, step = 10001 (6.465 sec)
+global_step/sec: 18.0346
+loss = 0.25849518, step = 10101 (5.545 sec)
+global_step/sec: 20.1609
+loss = 0.4200794, step = 10201 (4.960 sec)
+global_step/sec: 19.1623
+loss = 0.61164325, step = 10301 (5.219 sec)
+global_step/sec: 17.0572
+loss = 0.50736916, step = 10401 (5.863 sec)
+Saving checkpoints for 10498 into saved_model/lstm_crf/model/model.ckpt.
+Skip the current checkpoint eval due to throttle secs (120 secs).
+Calling model_fn.
+Done calling model_fn.
+Starting evaluation at 2022-03-13T20:10:09Z
+Graph was finalized.
+Restoring parameters from saved_model/lstm_crf/model/model.ckpt-10498
+Running local_init_op.
+Done running local_init_op.
+Evaluation [10/100]
+Evaluation [20/100]
+Evaluation [30/100]
+Evaluation [40/100]
+Finished evaluation at 2022-03-13-20:10:11
+Saving dict for global step 10498: acc = 0.85839486, f1 = 0.7849938, global_step = 10498, loss = 5.483704, precision = 0.8192059, recall = 0.7535247
+Saving 'checkpoint_path' summary for global step 10498: saved_model/lstm_crf/model/model.ckpt-10498
+Loss for final step: 0.27759704.
+Calling model_fn.
+Done calling model_fn.
+Graph was finalized.
+Restoring parameters from saved_model/lstm_crf/model/model.ckpt-10498
+Running local_init_op.
+Done running local_init_op.

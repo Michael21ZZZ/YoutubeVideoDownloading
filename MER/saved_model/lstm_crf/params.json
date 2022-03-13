@@ -1,0 +1,14 @@
+{
+    "batch_size": 20,
+    "buffer": 15000,
+    "chars": "data/preprocess/lstm_crf/vocab.chars.txt",
+    "dim": 300,
+    "dropout": 0.3,
+    "epochs": 50,
+    "glove": "data/preprocess/lstm_crf/glove.npz",
+    "lr": 0.001,
+    "lstm_size": 80,
+    "num_oov_buckets": 1,
+    "tags": "data/preprocess/lstm_crf/vocab.tags.txt",
+    "words": "data/preprocess/lstm_crf/vocab.words.txt"
+}
