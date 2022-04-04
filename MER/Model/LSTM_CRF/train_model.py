@@ -157,11 +157,11 @@ def model_fn(features, labels, mode, params):
 
 
 def fwords(name):
-    return str(Path(DATADIR, '{}.words.txt'.format(name)))
+    return str(Path(DATADIR + "/description/", '{}.words.txt'.format(name)))
 
 
 def ftags(name):
-    return str(Path(DATADIR, '{}.tags.txt'.format(name)))
+    return str(Path(DATADIR + "/description/", '{}.tags.txt'.format(name)))
 
 def model_train():
     # Params
@@ -235,7 +235,7 @@ def predict_input_fn(line):
     return (words, nwords), None
 
 
-def inference(inference_file, output_file, modeldir='./saved_model/lstm_crf/model'):
+def inference(inference_file, output_file, tag_filename, cnt_filename, modeldir='./saved_model/lstm_crf/model'):
 
     params = PARAMAS
     params['words'] = str(Path(DATADIR, 'vocab.words.txt'))
@@ -262,7 +262,7 @@ def inference(inference_file, output_file, modeldir='./saved_model/lstm_crf/mode
     def write_predictions(name):
         # set up the fake tags
         Path('./saved_model/lstm_crf/score').mkdir(parents=True, exist_ok=True)
-        with Path(output_file).open('wb') as f:
+        with Path(tag_filename).open('wb') as f:
             test_inpf = functools.partial(input_fn, fwords(name), ftags(name))
             golds_gen = generator_fn(fwords(name), ftags(name))
             preds_gen = estimator.predict(test_inpf)
@@ -273,11 +273,11 @@ def inference(inference_file, output_file, modeldir='./saved_model/lstm_crf/mode
                 f.write(b'\n')
 
     write_predictions(name)
-    read_result(output_file)
+    read_result(output_file, tag_filename, cnt_filename, name)
     # test acc = 0.76826996, f1 = 0.72103536, global_step = 2125, loss = 6.917531, precision = 0.69827586, recall = 0.7453284
 
-def read_result(file_name):
-    data = open(file_name).readlines()
+def read_result(output_file, tag_filename, cnt_filename, name):
+    data = open(tag_filename).readlines()
     empty_index = [index for index, i in enumerate(data) if i == "\n"]
     empty_index = [-1] + empty_index
     data_list = []
@@ -287,6 +287,7 @@ def read_result(file_name):
         data_list.append([i.split() for i in data[b:e]])
 
     stored_list = []
+    mer_cnt = 0
     for ele in data_list:
         ele = list(filter(lambda x: len(x) == 3, ele))
         length_limit = len(ele)
@@ -295,6 +296,7 @@ def read_result(file_name):
             tokens = line[0]
             pred = line[-1]
             if pred == "B-MT":
+                mer_cnt += 1
                 tokens = "<MT> " + tokens
                 if (index < length_limit - 1 and ele[index + 1][-1] != "I-MT") or (index == length_limit - 1):
                     tokens += " </MT>"
@@ -304,10 +306,12 @@ def read_result(file_name):
 
             list_tokens.append(tokens)
         stored_list.append(" ".join(list_tokens).replace("\n", ""))
-    with open(file_name,'w') as f1:
+    with open(output_file,'w') as f1:
         for line in stored_list:
             f1.write(line + "\n")
 
+    with open(cnt_filename, 'a') as f2:
+        f2.write(name + " " + str(mer_cnt) + "\n")
 
 def seperate_eval(file_path):
     data = pd.read_csv(file_path, sep=" ", header=None)

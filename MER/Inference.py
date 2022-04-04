@@ -9,10 +9,12 @@ if __name__ == '__main__':
     args.add_argument("--model_type", required=True, choices=["lstm_crf",'crf', 'spacy'])
     args.add_argument("--input_file", required=True, type=str)
     args.add_argument("--output_file", required=True, type=str)
+    args.add_argument("--tag_file", required=True, type=str)
+    args.add_argument("--cnt_file", required=True, type=str)
 
     args = args.parse_args()
     if args.model_type == "lstm_crf":
-        lstm_crf.inference(args.input_file, args.output_file)
+        lstm_crf.inference(args.input_file, args.output_file, args.tag_file, args.cnt_file)
     elif args.model_type == "crf":
         crf.inference(args.input_file, args.output_file)
     else:
