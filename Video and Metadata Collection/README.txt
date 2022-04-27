@@ -32,7 +32,7 @@ The INPUT required for this process is an excel file named:
 1) "InputList.xlsx"; 
 2) "metadata_labeled_videos.csv" since this was already collected from prior work. 
 
-The OUTPUT from this process would be: 
+The OUTPUT from this process would be (1, 4, 5 not uploaded to GitHub due to file size issues): 
 1) "googletrends" folder containing csv files only used for some processing;
 2) "NewList.csv" containing 100 filtered keywords and their average popularity; 
 3) "videoIDs.txt" containing the video IDs of results from youtube search using filtered keywords; 
