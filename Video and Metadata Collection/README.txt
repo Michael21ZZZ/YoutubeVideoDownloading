@@ -19,7 +19,7 @@
    contains all metadata features except comments.
 
 6. Run Script named: "Youtube_Features_Unlabeled_Videos.py". It takes as input "complete_data.txt" from step 2 and returns a csv file named: "features_unlabeled_videos
-   .csv". This file contains the metadata view features that will be used for Machine Learning models.
+   .csv". This file contains the metadata view features (except MER) that will be used for Machine Learning models.
 
 7. Run Script named: "Youtube_Features_Labeled_Videos.py". It takes as input "metadata_labeled_videos.csv" already provided by Xiao, and returns a csv file 
    named: "features_labeled_videos.csv". This file contains the metadata view features that will be used for Machine Learning models.
