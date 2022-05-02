@@ -4,3 +4,4 @@
 
 1. extract_audio.ipynb (Could run locally, and on Colab) - Extract audio from videos. (.mp4->.wav)
 2. speech2text_gcp.ipynb (Could only run on Colab) - First upload audio files to GCP, then convert audio to text. (.wav->.txt & .json)
+3. The files correspond to step 2 and step 4.c in our process.
