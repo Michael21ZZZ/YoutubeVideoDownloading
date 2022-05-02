@@ -9,7 +9,7 @@ From a generalized perspective, our feature extraction process requires the foll
    c. scripts to process audio transcription  (.mp4 to .wav to .txt) 
    d. script to process speaker feature (gender) (.wav to .txt)
    e. script for processing MER features for video description (video metadata) and video transcription (video content) (.txt. to .txt)
-6. Script to extract features from 4.b and 4.d that is stored on GCP
-7. Script to concatenate features with MER f
+5. Script to extract features from 4.b and 4.d that is stored on GCP
+6. Script to concatenate features with MER features from 4.e (final result: one csv for unlabeled)
 
 
