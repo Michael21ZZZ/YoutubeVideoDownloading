@@ -2,7 +2,7 @@ From a generalized perspective, our feature extraction process requires the foll
 
 1. Script to download Youtube Video files to Google Drive
 2. Script for video to audio extraction on Google Drive (In Audio2Text folder)
-3. Script to upload files from Google Drive to GCP
+3. Script to upload files from Google Drive to GCP (Note: before uploading, make sure to create the bucket on GCP first) 
 4. Script to process features
    a. video metadata feature extraction (.mp4 to .csv and .txt)
    b. video content analysis via Google Cloud Video Intelligence Platform ( .mp4 to .json)
