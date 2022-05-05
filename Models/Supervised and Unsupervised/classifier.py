@@ -107,7 +107,7 @@ skf = StratifiedKFold(n_splits=5)
 for idx, clf in enumerate(multiclass_classifiers):
     print('Training classifier: ', multiclass_classifiers_names[idx])
     i = 0
-    X_train_all, X_test_all, y_train_all, y_test_all = train_test_split(X, y, test_size=0.05, random_state=35, stratify=y)
+    X_train_all, X_test_all, y_train_all, y_test_all = train_test_split(X, y, test_size=0.05, stratify=y)
     f1_scores_split = []
     clfs = []
     for train_index, test_index in skf.split(X_train_all, y_train_all):
@@ -127,10 +127,10 @@ for idx, clf in enumerate(multiclass_classifiers):
     print('='*50)
 
 # Stratifying the train-val split using a validation set size of 20%
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=35, stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y)
 
 # Training K-Means
-kmeans = KMeans(n_clusters=4, random_state=0).fit(X_train)
+kmeans = KMeans(n_clusters=4).fit(X_train)
 kmeans_preds = kmeans.predict(X_test)
 kmeans_labels = kmeans.labels_
 
