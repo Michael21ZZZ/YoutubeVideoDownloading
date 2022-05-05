@@ -1,0 +1,85 @@
+RESULTS FOR TEST_SIZE = 20%, STRATIFY = TRUE
+Showing results for: KNeighborsClassifier()
+              precision    recall  f1-score   support
+
+           1       0.63      0.21      0.32        56
+           2       0.26      0.73      0.38        11
+           3       0.33      0.33      0.33        24
+           4       0.23      0.50      0.31        14
+
+    accuracy                           0.33       105
+   macro avg       0.36      0.44      0.34       105
+weighted avg       0.47      0.33      0.33       105
+
+Showing results for: GaussianNB()
+              precision    recall  f1-score   support
+
+           1       0.62      0.14      0.23        56
+           2       0.21      0.73      0.32        11
+           3       0.29      0.29      0.29        24
+           4       0.21      0.43      0.28        14
+
+    accuracy                           0.28       105
+   macro avg       0.33      0.40      0.28       105
+weighted avg       0.44      0.28      0.26       105
+
+Showing results for: HistGradientBoostingClassifier()
+              precision    recall  f1-score   support
+
+           1       0.57      0.61      0.59        56
+           2       0.40      0.55      0.46        11
+           3       0.25      0.17      0.20        24
+           4       0.14      0.14      0.14        14
+
+    accuracy                           0.44       105
+   macro avg       0.34      0.37      0.35       105
+weighted avg       0.42      0.44      0.43       105
+
+Showing results for: AdaBoostClassifier()
+              precision    recall  f1-score   support
+
+           1       0.46      0.34      0.39        56
+           2       0.25      0.64      0.36        11
+           3       0.29      0.21      0.24        24
+           4       0.21      0.29      0.24        14
+
+    accuracy                           0.33       105
+   macro avg       0.30      0.37      0.31       105
+weighted avg       0.37      0.33      0.33       105
+
+Showing results for: RandomForestClassifier()
+              precision    recall  f1-score   support
+
+           1       0.61      0.48      0.54        56
+           2       0.45      0.82      0.58        11
+           3       0.32      0.29      0.30        24
+           4       0.26      0.36      0.30        14
+
+    accuracy                           0.46       105
+   macro avg       0.41      0.49      0.43       105
+weighted avg       0.48      0.46      0.46       105
+
+Showing results for: MLPClassifier()
+              precision    recall  f1-score   support
+
+           1       0.59      0.39      0.47        56
+           2       0.62      0.45      0.53        11
+           3       0.39      0.38      0.38        24
+           4       0.11      0.29      0.16        14
+
+    accuracy                           0.38       105
+   macro avg       0.43      0.38      0.38       105
+weighted avg       0.49      0.38      0.42       105
+
+Showing results for: GradientBoostingClassifier()
+              precision    recall  f1-score   support
+
+           1       0.53      0.48      0.50        56
+           2       0.35      0.73      0.47        11
+           3       0.29      0.17      0.21        24
+           4       0.18      0.21      0.19        14
+
+    accuracy                           0.40       105
+   macro avg       0.33      0.40      0.34       105
+weighted avg       0.41      0.40      0.39       105
+
