@@ -103,17 +103,23 @@ X = labeled_all_features_np[:, 1:]*1
 y = labeled_all_features_labels.astype('int')
 X_unlabeled = unlabeled_all_features_np[:, 1:]
 
+# Un-comment for separate results on metadata features
+# X = X[:, :11]
+
+# Un-comment for separate results on content view features
+# X = X[:, 11:]
+
 skf = StratifiedKFold(n_splits=5)
 for idx, clf in enumerate(multiclass_classifiers):
     print('Training classifier: ', multiclass_classifiers_names[idx])
     i = 0
-    X_train_all, X_test_all, y_train_all, y_test_all = train_test_split(X, y, test_size=0.05, stratify=y)
+    X_train_all, X_test_all, y_train_all, y_test_all = train_test_split(X, y, test_size=0.05, stratify=y) # change test size for different splits
     f1_scores_split = []
     clfs = []
     for train_index, test_index in skf.split(X_train_all, y_train_all):
         print('Split: ', i+1)
-        X_train, X_test = X[train_index], X[test_index]
-        y_train, y_test = y[train_index], y[test_index]
+        X_train, X_test = X_train_all[train_index], X_train_all[test_index]
+        y_train, y_test = y_train_all[train_index], y_train_all[test_index]
         clf.fit(X_train, y_train)
         y_pred = clf.predict(X_test)
         f1_scores_split.append(f1_score(y_test, y_pred, average = 'macro'))
@@ -122,8 +128,8 @@ for idx, clf in enumerate(multiclass_classifiers):
     f1_scores_split = np.array(f1_scores_split)
     max_score_idx = np.argmax(f1_scores_split)
     max_clf = clfs[max_score_idx]
-    y_pred = max_clf.predict(X_test)
-    print(classification_report(y_test, y_pred))
+    y_pred = max_clf.predict(X_test_all)
+    print(classification_report(y_test_all, y_pred))
     print('='*50)
 
 # Stratifying the train-val split using a validation set size of 20%
