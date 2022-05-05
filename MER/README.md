@@ -1,4 +1,5 @@
 # Medical NER 
+Currently we have adopted LSTM_CRF and it is the only working model. Besides, the model has already been trained, so after downloading the pre-trained language model in Data Preprocess, you can directly go to inference section.
 
 ## Methods:
 - [Spacy](https://allenai.github.io/scispacy/)
@@ -9,6 +10,8 @@
 This program is only tested on python3.6. 
   
     pip install -r requirements.txt
+
+We suggest using virtual environment.
 
 
 ## Data Preprocess:
@@ -43,9 +46,8 @@ When you have done the model training, you can annotate a new file by:
 
 You can check the annoated text in **./data/output_test.txt**. Also for other models, you need to change the model_type to **"lstm_crf"** or **"crf"**
 
-# TODO: Documentation
-1.  Function introduction.
-2.  Reorganize the folder.
-3.  Three walk through tutorials. 
-4.  **Evaluation by class.** 
-5.  Add requirements.txt.
+For multiple files, you can run by:
+
+    
+    python mer_multiple.py --input_dir INPUT_DIRECTORY --output_dir OUTPUT_STORE_DIRECTORY --tag_dir TAG_FILE_STORE_PATH --cnt_file RESULT_FILE_PATH
+    
