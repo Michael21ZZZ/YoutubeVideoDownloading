@@ -1,10 +1,17 @@
+'''
+Scripts for downloading videos to local machine.
+Notes:
+    1. Update the Developer Key variable with your own key. You can find it here:
+    https://cloud.google.com/docs/authentication/api-keys
+'''
 # coding: utf-8
 from pytube import YouTube
 import os
 import json
 import urllib
-from apiclient.discovery import build
-from apiclient.errors import HttpError
+from googleapiclient import discovery
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 from oauth2client.tools import argparser
 import requests
 import os
@@ -18,7 +25,9 @@ import pandas
 # tab of
 # https://cloud.google.com/console
 # Please ensure that you have enabled the YouTube Data API for your project.
-DEVELOPER_KEY = "AIzaSyBCo5JIrF4IPQ5jIjOBqUxBPS7IgBAEvfE"
+
+# DEVELOPER_KEY = "AIzaSyBCo5JIrF4IPQ5jIjOBqUxBPS7IgBAEvfE" # original API KEY for project
+DEVELOPER_KEY = "AIzaSyBxztRZEw8u6EjuMgV77dBS1Soel5bOXnk" # Key for Ruoyu Zhang
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
@@ -45,24 +54,26 @@ def download_video(downloadURLSet, ID_set):
         print("no video to download")
         return
     current_number = 0
+
+    # create a folder called videos
+    path = "./videos"
+    os.mkdir(path)
+
     for downloadURL in downloadURLSet:
         print(downloadURL)
         try:
-        	# added line 52 and 53 to create a folder called videos
-        	path = "./videos"
-        	os.mkdir(path)
-        	yt = YouTube(downloadURL)
-        	name = yt.title
-        	oldName = name
-        	newName = ID_set[current_number]
-        	print("Now is loading %s------------>" % name)
-        	stream = yt.streams.filter(file_extension='mp4').first()
-        	stream.download('./videos/', filename = newName + '.mp4')
-        	# os.rename(path + oldName + '.mp4', path + oldName + '-' + newName + '.mp4')
-        	# os.rename(os.path.join('./videos', yt.streams.first().default_filename), os.path.join('./videos', downloadURL.strip(BASE_URL)+'.mp4'))
-        	print("--------------->%s is loaded!" % name)
-        	print(current_number)
-        	current_number += 1
+            yt = YouTube(downloadURL)
+            name = yt.title
+            oldName = name
+            newName = ID_set[current_number]
+            print("Now is loading %s------------>" % name)
+            stream = yt.streams.filter(file_extension='mp4').first()
+            stream.download('./videos/', filename = newName + '.mp4')
+            # os.rename(path + oldName + '.mp4', path + oldName + '-' + newName + '.mp4')
+            # os.rename(os.path.join('./videos', yt.streams.first().default_filename), os.path.join('./videos', downloadURL.strip(BASE_URL)+'.mp4'))
+            print("--------------->%s is loaded!" % name)
+            print(current_number)
+            current_number += 1
         except:
             print("Some thing wrong about the authority!")
             continue

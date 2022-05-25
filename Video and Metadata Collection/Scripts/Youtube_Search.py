@@ -1,6 +1,18 @@
+'''
+Scripts to search videos according to keywords.
+Notes:
+    1. Update the Developer Key variable with your own key. You can find it here:
+    https://cloud.google.com/docs/authentication/api-keys
+
+'''
+
+
 import sys
 import json
 import urllib
+import apiclient
+import re
+import oauth2client
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 from oauth2client.tools import argparser
@@ -14,9 +26,11 @@ import isodate
 # importing the metadata code
 from Youtube_Metadata import *
 
-DEVELOPER_KEY = "AIzaSyANdt1eW-eYygBWMa73vtjX9G2XlvkIdAg"
+# DEVELOPER_KEY = "AIzaSyANdt1eW-eYygBWMa73vtjX9G2XlvkIdAg" # original API KEY for project
+DEVELOPER_KEY = "AIzaSyBxztRZEw8u6EjuMgV77dBS1Soel5bOXnk" # Key for Ruoyu Zhang
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
+
 
 # takes in a keyword and yields 40 video IDs by default
 def youtube_search(query, max_result = 40):
@@ -50,6 +64,7 @@ def youtube_search(query, max_result = 40):
 			print('An exception occurred: ', e)
 	return shortVideoList, desc_dict
 
+
 # function calculating the similarity of keyword with video description
 def calc_cosine_similarity(word1, word2):
 	# Cosine similarity calculation
@@ -81,6 +96,7 @@ def calc_cosine_similarity(word1, word2):
 	# print("similarity: ", cosine)
 	return(cosine)
 
+
 # function which takes keywords file as input and write the video IDs for the videos as output
 # and writes dictionary of metadata for the corresponding videos into a text file 
 def get_videos(keyword, max_result):
@@ -93,10 +109,10 @@ def get_videos(keyword, max_result):
 			for i in videoIdlist:
 				f.write(i)
 				f.write('\n')
-		f=open('complete_data.txt','a')
+		f = open('complete_data.txt','a')
 		rank = 0
-		for idx,value in output.items():
-			result=youtube_get_videoinfo(idx)
+		for idx, value in output.items():
+			result = youtube_get_videoinfo(idx)
 			result['duration'] = value
 			result['keyword']=str(keyword, 'utf-8')
 			rank += 1
@@ -120,6 +136,7 @@ def get_videos(keyword, max_result):
 	except HttpError as e:
 		print ("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))    
 
+
 # main function executing two tasks: writing a text file with metadata & writing a text file with video IDs only
 def main():
 	keywords_file = pandas.read_csv('NewList.csv')
@@ -127,6 +144,7 @@ def main():
 	for keyword in L1: # segment your keywords and run the file sequentially (copy all individual files to Text-Data folder)
 		print('Processing Keyword: ', keyword)
 		get_videos(keyword.encode("utf-8"), max_result = 40) #extracting 40 videos per keyword
+
 
 if __name__ == '__main__':
 	main()

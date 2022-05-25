@@ -1,3 +1,10 @@
+'''
+Scripts to prepare for metadata extraction.
+Notes:
+    1. Download chromedriver and add the chromedriver to the path. You may refer to
+    https://www.browserstack.com/guide/run-selenium-tests-using-selenium-chromedriver#:~:text=Go%20to%20the%20terminal%20and,Type%20Y%20to%20save
+    2. Do not use Spyder or Jupyternotebook to run this script since it will create errors. Pycharm is fine.
+'''
 import time
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
@@ -8,14 +15,16 @@ import sys
 import os
 import json
 import pickle
-import requests
 import time
-import regex as re
-from requests_html import HTMLSession 
-from bs4 import BeautifulSoup as bs 
-# for cosine similarity
+import re
+from bs4 import BeautifulSoup as bs
+from requests_html import HTMLSession, AsyncHTMLSession
+
+#for cosine similarity
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+import asyncio
+import nest_asyncio
 
 def json_extract(obj, key):
     """Recursively fetch values from nested JSON."""
@@ -51,18 +60,18 @@ def youtube_get_videoinfo(videoID):
     try:
         search_url = "https://www.youtube.com/watch?v="
         video_url = search_url + videoID
-        # video_url = "https://www.youtube.com/watch?v=XOxQyO-Sw-g" # only for testing
         # print('\n')
         print("Reading URL: ", video_url)
 
         # init an HTML Session
         session = HTMLSession()
+
         # get the html content
         response = session.get(video_url)
         # #change timeout
         # response.html.render(timeout=20)
         # execute Java-script
-        response.html.render(sleep=1, timeout=60)
+        response.html.render(scrolldown = 4, sleep=1, timeout=60)
         # create bs object to parse HTML
         soup = bs(response.html.html, "html.parser")
         print('soup')
@@ -116,7 +125,8 @@ def youtube_get_videoinfo(videoID):
 
         # print('selenium...')
 
-        with Chrome(executable_path=r'C:\Program Files\chromedriver.exe') as driver:
+        # with Chrome(executable_path=r'C:\Program Files\chromedriver.exe') as driver: on windows
+        with Chrome(executable_path=r'/usr/local/bin/chromedriver') as driver: # on mac
             wait = WebDriverWait(driver,15)
             driver.get(video_url)
 

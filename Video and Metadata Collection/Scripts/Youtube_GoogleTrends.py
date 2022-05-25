@@ -1,8 +1,17 @@
+'''
+Scripts to take keywords as input and output filtered keywords and popularity
+Nothing to edit.
+'''
+
+import pandas
+import pytrends
 from pytrends.request import TrendReq
 import pandas as pd
 import time
 import sys
-import os, glob
+import os
+import glob
+import openpyxl
 
 pytrends = TrendReq(geo='US', tz=360)
 
@@ -65,15 +74,14 @@ def normalise(df, n_file, key_ref, col='date'):
 
 def main():
     # InputList should have 228 keywords (to do: input file should not contain ref keyword)
-    keywords=pd.read_excel('InputList.xlsx')
+    keywords = pd.read_excel('/Users/ZHANGRY/Codes/YoutubeRx/Video and Metadata Collection/Input/InputList.xlsx')
     kw_list = keywords['Words'].values.tolist()
     path = "./googletrends"
     os.mkdir(path)
     # trends of words within each list of five keywords, using diabetes causes as the reference keyword
     gtrends_overtime(kw_list, 'diabetes causes', "_worldwide_", directory = './googletrends', category=0, time='today 5-y', loc='US')
     # combining all 57 data files wtihin the google trends folder
-    combined = combine_wbase("./googletrends/",
-              "gtrends_overtime_worldwide_", 57, "./googletrends/gtrends_overtime_worlwide_merged.csv")
+    combined = combine_wbase("./googletrends/", "gtrends_overtime_worldwide_", 57, "./googletrends/gtrends_overtime_worlwide_merged.csv")
     # reading the combined csv file back into a pandas df
     combined = pd.read_csv("./googletrends/gtrends_overtime_worlwide_merged.csv")
     # removing the ISPARTIAL column from the dataframes

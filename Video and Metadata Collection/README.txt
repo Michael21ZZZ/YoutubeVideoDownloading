@@ -6,8 +6,7 @@
 
 2. Run Script named: "Youtube_Search.py". It takes as input "NewList.csv" file and returns a text file named: "videoIDs.txt", which contains the videoIDs for 
    search results from the keywords. This script also returns a text file named: "complete_data.txt", which contains the raw metadata for these videos in json format. 
-   Note that the script named: "Youtube_Metadata.py", which does the webscraping using Youtube_API and Sellenium (chrome driver installation required), has 
-   already been imported into this script.
+   Note that the script named: "Youtube_Metadata.py", which does the webscraping using Youtube_API and Sellenium (chrome driver installation required), has pip already been imported into this script.
 
 3. Run Script named: "Youtube_Downloader.py". It takes as input "videoIDs.txt" from step 2 and downloads all those videos to a folder named: "videos" in the 
    current directory of the local machine.
